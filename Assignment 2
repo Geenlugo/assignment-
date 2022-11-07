@@ -1,0 +1,88 @@
+Question 1
+#include <iostream>
+using namespace std;
+
+float const lpg= 0.264179;
+float calc(float litres, float miles)
+{
+    float gal;
+    gal= lpg* litres;
+    float milage= miles/gal;
+
+    return(milage);
+}
+int main()
+float lit,miles;
+char ch;
+do{
+    cout<<"/n enter number of litres of gasoline: ";
+    cin>>lit;
+
+    cout<<"/n enter the number of miles travelled: ";
+    cin>> miles;
+    cout<<"/n Number of miles per gallon the car delivered:";
+    cout<< calc(lit, miles)<<endl;
+
+return 0;
+}
+Question 2
+#include <iostream>
+using namespace std;
+int findGCD(int a, int b) {
+   if (b == 0)
+      return a;
+      return findGCD(b, a % b);
+   }
+   void convertToLowestTerms(int num1, int num2)
+   {
+      int denom;
+      denom = findGCD(num1,num2);
+      num1/=denom;
+      num2/=denom;
+      cout<< "Num1 = " << num1<<endl;
+      cout<< "Num2 = " << num2<<endl;
+      cout<< "Lowest Fraction : "<<num1<<"/"<<num2;
+}
+int main(){
+   int Num1 = 14;
+   int Num2 = 8;
+   convertToLowestTerms(Num1,Num2);
+   return 0;
+}
+Question 3#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+double ConvertToMPH (int paceInMin, int paceInSec);
+double ConvertToMPH (double kph);
+
+int main()
+{
+
+  double paceInMin;
+  double paceInSec;
+  double kph;
+
+  cout << "Please enter your pace in minutes: ";
+  cin >> paceInMin;
+  cout << "Please enter your pace in seconds: ";
+  cin >> paceInSec;
+  cout << "Your pace in MPH is: " << ConvertToMPH (paceInMin, paceInSec);
+
+  cout << "Please enter your speed in KPH: ";
+  cin >> kph;
+  cout << "Your KPH pace in MPH is: " << ConvertToMPH (kph);
+
+  return 0;
+}
+
+double ConvertToMPH(int paceInMin, int paceInSec)
+{
+    return 60/(paceInMin + paceInSec/60.);
+}
+
+double ConvertToMPH(double kph)
+{
+    return kph/1.61;
+}
